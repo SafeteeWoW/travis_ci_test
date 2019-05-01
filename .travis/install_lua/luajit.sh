@@ -17,6 +17,9 @@ curl --retry 10 --retry-delay 10 --location https://github.com/LuaJIT/LuaJIT/arc
 cd $LUA_HOME_DIR
 
 echo ">> Compiling LuaJIT"
+
+# force the INSTALL_TNAME to be luajit
+perl -i -pe 's/INSTALL_TNAME=.+/INSTALL_TNAME= luajit/' Makefile
 make && make install PREFIX="$LUA_HOME_DIR"
 
 ln -s -f $LUA_HOME_DIR/bin/luajit $HOME/.lua/luajit
