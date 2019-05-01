@@ -15,10 +15,10 @@ matrix:
       os: linux
     - env: LUA=luajit2.0.4
       os: linux
-    - env: LUA=luajit2.1.0-beta3
+    - env: 'LUA=luajit2.1.0-beta3'
       os: linux
   allow_failures:
-    - env: LUA=luajit2.1.0-beta3
+    - env: 'LUA=luajit2.1.0-beta3'
       os: linux
 
 before_install:
