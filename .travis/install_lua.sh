@@ -2,11 +2,6 @@
 # install an implementation of Lua interpreter
 
 set -eufo pipefail
-mkdir -p $HOME/install
-mkdir -p $HOME/.lua
-export PATH=${PATH}:$HOME/.lua:$HOME/.local/bin:${HOME}/install/luarocks/bin
-export LUA_HOME_DIR=$HOME/install/$LUA
-export LR_HOME_DIR=$HOME/install/luarocks
 
 cd ${TRAVIS_BUILD_DIR}
 
@@ -18,6 +13,5 @@ else
 	echo "Don't know how to install $LUA"
 	exit 1
 fi
-
 
 cd ${TRAVIS_BUILD_DIR}

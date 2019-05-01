@@ -23,7 +23,7 @@ matrix:
 
 before_install:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install -y libxml2-utils; fi
-  - source .travis/setenv_platform.sh
+  - source .travis/setenv.sh
   - bash .travis/install_lua.sh
   - bash .travis/install_compressor_decompressor.sh
   - bash .travis/install_luarocks_packages.sh
