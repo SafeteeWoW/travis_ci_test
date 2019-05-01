@@ -1,8 +1,6 @@
 # Setup env vars which are determined at runtime.
 # Must source this script
 
-set -eufo pipefail
-
 if [ -z "${PLATFORM:-}" ]; then
   export PLATFORM=$TRAVIS_OS_NAME;
 fi
