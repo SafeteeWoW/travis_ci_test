@@ -15,7 +15,7 @@ echo "luajit version: $LUAJIT_VERSION"
 curl --retry 10 --retry-delay 10 --location https://github.com/LuaJIT/LuaJIT/archive/v$LUAJIT_VERSION.tar.gz | tar xz;
 
 cd LuaJIT-$LUAJIT_VERSION
-echo ">> Compiling LuaJIT"
+echo ">> Compiling LuaJIT $LUAJIT_VERSION"
 
 make && make install PREFIX="$LUA_HOME_DIR"
 

@@ -7,12 +7,12 @@ env:
 
 matrix:
     include:
-    #- env: LUA=lua5.1.4
-    #  os: linux
-    #- env: LUA=lua5.2.4
-    #  os: linux
-    #- env: LUA=lua5.3.3
-    #  os: linux
+    - env: LUA=lua5.1.4
+      os: linux
+    - env: LUA=lua5.2.4
+      os: linux
+    - env: LUA=lua5.3.3
+      os: linux
     - env: LUA=luajit2.0.4
       os: linux
     - env: LUA=luajit2.1.0-beta3
@@ -29,4 +29,6 @@ before_install:
   - bash .travis/install_luarocks_packages.sh
 
 script:
+  - hash -r
+  - lua -v
   - lua tests/Test.lua
