@@ -18,8 +18,6 @@ cd $LUA_HOME_DIR
 
 echo ">> Compiling LuaJIT"
 
-# force the INSTALL_TNAME to be luajit
-perl -i -pe 's/INSTALL_TNAME=.+/INSTALL_TNAME= luajit/' Makefile
 make && make install PREFIX="$LUA_HOME_DIR"
 
 ls $LUA_HOME_DIR/bin
