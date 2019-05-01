@@ -19,6 +19,9 @@ echo ">> Compiling $LUA"
 make $PLATFORM
 make INSTALL_TOP="$LUA_HOME_DIR" install
 
+ln -s -f $LUA_HOME_DIR/bin/lua $HOME/.lua/lua
+ln -s -f $LUA_HOME_DIR/bin/luac $HOME/.lua/luac
+
 hash -r
 lua -v
 
