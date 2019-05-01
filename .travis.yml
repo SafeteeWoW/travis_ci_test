@@ -17,7 +17,7 @@ matrix:
       os: linux
     - env: 'LUA=luajit2.1.0-beta3'
       os: linux
-  allow_failures:
+    allow_failures:
     - env: 'LUA=luajit2.1.0-beta3'
       os: linux
 
