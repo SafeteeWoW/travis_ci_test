@@ -1,30 +1,44 @@
 language: c
 sudo: false
 
-os:
-    - linux
-    - osx
-
 env:
   global:
     - LUAROCKS=2.2.2
-  matrix:
-    - LUA=lua5.1.4  LUANUMBER=double
-    - LUA=luajit     # latest stable version (2.0.x)
-    - LUA=lua5.2.4  LUANUMBER=double
-    - LUA=lua5.3.3  LUANUMBER=double
-    - LUA=luajit2.1  # current head of 2.1 branch
 
 matrix:
-  # 'bleeding edge' LuaJIT may fail without breaking the build
+    include:
+    - env: LUA=lua5.1.4
+      os: linux
+    - env: LUA=lua5.2.4
+      os: linux
+    - env: LUA=lua5.3.3
+      os: linux
+    - env: LUA=luajit2.0.4
+      os: linux
+    #- env: LUA=lua5.1.4
+    #  os: mac
+    #- env: LUA=lua5.2.4
+    #  os: mac
+    #- env: LUA=lua5.3.3
+    #  os: mac
+    #- env: LUA=luajit2.0.4
+    #  os: mac
+    - env: LUA=luajit2.1.0-beta3
+      os: linux
+    #- env: LUA=luajit2.1.0-beta3
+    #  os: mac
   allow_failures:
-    - env: LUA=luajit2.0
-    - env: LUA=luajit2.1
+    - env: LUA=luajit2.1.0-beta3
+      os: linux
+    #- env: LUA=luajit2.1.0-beta3
+    #  os: mac
 
 before_install:
-  - source .travis/setenv_lua.sh
-  - source .travis/setup_compressor_decompressor.sh
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install -y libxml2-utils; fi
+  - source .travis/setenv_platform.sh
+  - bash .travis/install_lua.sh
+  - bash .travis/install_compressor_decompressor.sh
+  - bash .travis/setup_compressor_decompressor.sh
 
 script:
   - lua tests/Test.lua

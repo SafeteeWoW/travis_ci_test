@@ -1,15 +1,15 @@
 if [ -z "${PLATFORM:-}" ]; then
-  PLATFORM=$TRAVIS_OS_NAME;
+  export PLATFORM=$TRAVIS_OS_NAME;
 fi
 
 if [ "$PLATFORM" == "osx" ]; then
-  PLATFORM="macosx";
+  export PLATFORM="macosx";
 fi
 
 if [ -z "$PLATFORM" ]; then
   if [ "$(uname)" == "Linux" ]; then
-    PLATFORM="linux";
+    export PLATFORM="linux";
   else
-    PLATFORM="macosx";
+    export PLATFORM="macosx";
   fi;
 fi
