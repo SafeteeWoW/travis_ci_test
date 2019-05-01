@@ -5,6 +5,7 @@ set -eufo pipefail
 
 cd ${TRAVIS_BUILD_DIR}
 
+cd "$LUA_SRC_DIR"
 if [[ "$LUA" =~ luajit.* ]]; then
 	bash ${TRAVIS_BUILD_DIR}/.travis/install_lua/luajit.sh
 elif [[ "$LUA" =~ lua5.* ]]; then
