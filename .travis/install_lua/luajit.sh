@@ -22,6 +22,8 @@ echo ">> Compiling LuaJIT"
 perl -i -pe 's/INSTALL_TNAME=.+/INSTALL_TNAME= luajit/' Makefile
 make && make install PREFIX="$LUA_HOME_DIR"
 
+ls $LUA_HOME_DIR/bin
+echo $PATH
 ln -s -f $LUA_HOME_DIR/bin/luajit $HOME/.lua/luajit
 ln -s -f $LUA_HOME_DIR/bin/luajit $HOME/.lua/lua
 
