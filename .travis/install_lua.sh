@@ -3,6 +3,7 @@
 
 set -eufo pipefail
 mkdir -p $HOME/install
+mkdir -p $HOME/.lua
 export PATH=${PATH}:$HOME/.lua:$HOME/.local/bin:${HOME}/install/luarocks/bin
 export LUA_HOME_DIR=$HOME/install/$LUA
 export LR_HOME_DIR=$HOME/install/luarocks
