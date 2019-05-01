@@ -11,7 +11,7 @@ VERSION="${LUA/ljx/}"
 echo ">> Downloading $LUA"
 echo "lJX version: $VERSION"
 
-curl --retry 10 --retry-delay 10 --location https://github.com/katlogic/ljx/archive/LJX-v${VERSION}.zip | tar xz;
+curl --retry 10 --retry-delay 10 --location https://github.com/katlogic/ljx/archive/LJX-v${VERSION}.tar.gz | tar xz;
 
 cd ljx-LJX-v$VERSION
 echo ">> Compiling LuaJIT $VERSION"
