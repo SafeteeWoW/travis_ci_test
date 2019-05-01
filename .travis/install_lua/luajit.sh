@@ -19,8 +19,8 @@ echo ">> Compiling LuaJIT"
 
 make && make install PREFIX="$LUA_HOME_DIR"
 
-ls $LUA_HOME_DIR/bin
-echo $PATH
+ln -s -f luajit-$LUAJIT_VERSION $LUA_HOME_DIR/bin/luajit
+
 ln -s -f $LUA_HOME_DIR/bin/luajit $HOME/.lua/luajit
 ln -s -f $LUA_HOME_DIR/bin/luajit $HOME/.lua/lua
 
