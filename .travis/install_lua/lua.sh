@@ -3,7 +3,7 @@
 
 set -eufo pipefail
 echo "Downloading $LUA"
-if [ "$LUA" =~ lua5.* ]; then
+if [[ "$LUA" =~ lua5.* ]]; then
 	LUA_VERSION="${LUA/lua/}"
 	curl --retry 10 --retry-delay 10 http://www.lua.org/ftp/lua-${LUA_VERSION}.tar.gz | tar xz
 	cd lua-${LUA_VERSION}
@@ -34,6 +34,5 @@ echo ">> Compiling luarocks $LUAROCKS"
 make build && make install
 
 ln -s -f $LR_HOME_DIR/bin/luarocks $HOME/.lua/luarocks
-hash -r
 
 cd $TRAVIS_BUILD_DIR
