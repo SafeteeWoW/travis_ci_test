@@ -17,7 +17,7 @@ echo "Version: $VERSION"
 if [[ "$LUA" =~ ${NAME}3 ]]; then
 	wget --tries 10 --waitretry 10 https://sourceforge.net/projects/luaj/files/luaj-3.0/${VERSION}/luaj-${VERSION}.zip
 elif [[ "$LUA" =~ ${NAME}2 ]]; then
-	wget --tries 10 --waitretry 10 https://sourceforge.net/projects/luaj/files/luaj-3.0/${VERSION}/luaj-${VERSION}.zip
+	wget --tries 10 --waitretry 10 https://sourceforge.net/projects/luaj/files/luaj-2.0/${VERSION}/luaj-${VERSION}.zip
 else
 	echo "Dont know how to handle $LUA"
 	exit 1
