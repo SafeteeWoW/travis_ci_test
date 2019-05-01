@@ -10,6 +10,8 @@ if [[ "$LUA" =~ luajit.* ]]; then
 	bash ${TRAVIS_BUILD_DIR}/.travis/install_lua/luajit.sh
 elif [[ "$LUA" =~ lua5.* ]]; then
 	bash ${TRAVIS_BUILD_DIR}/.travis/install_lua/lua.sh
+elif [[ "$LUA" =~ ljx.* ]]; then
+	bash ${TRAVIS_BUILD_DIR}/.travis/install_lua/ljx.sh
 else
 	echo "Don't know how to install $LUA"
 	exit 1

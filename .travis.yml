@@ -7,31 +7,33 @@ env:
 
 matrix:
     include:
-    - env: LUA=lua5.1.4
+    - env: LUA=ljx1.3
       os: linux
-    - env: LUA=lua5.2.4
-      os: linux
-    - env: LUA=lua5.3.3
-      os: linux
-    - env: LUA=luajit2.0.4
-      os: linux
-    - env: LUA=luajit2.1.0-beta3
-      os: linux
-    - env: LUA=lua5.1.4
-      os: mac
-    - env: LUA=lua5.2.4
-      os: mac
-    - env: LUA=lua5.3.3
-      os: mac
-    - env: LUA=luajit2.0.4
-      os: mac
-    - env: LUA=luajit2.1.0-beta3
-      os: mac
-    allow_failures:
-    - env: LUA=luajit2.1.0-beta3
-      os: linux
-    - env: LUA=luajit2.1.0-beta3
-      os: mac
+    #- env: LUA=lua5.1.4
+    #  os: linux
+    #- env: LUA=lua5.2.4
+    #  os: linux
+    #- env: LUA=lua5.3.3
+    #  os: linux
+    #- env: LUA=luajit2.0.4
+    #  os: linux
+    #- env: LUA=luajit2.1.0-beta3
+    #  os: linux
+    #- env: LUA=lua5.1.4
+    #  os: mac
+    #- env: LUA=lua5.2.4
+    #  os: mac
+    #- env: LUA=lua5.3.3
+    #  os: mac
+    #- env: LUA=luajit2.0.4
+    #  os: mac
+    #- env: LUA=luajit2.1.0-beta3
+    #  os: mac
+    #allow_failures:
+    #- env: LUA=luajit2.1.0-beta3
+    #  os: linux
+    #- env: LUA=luajit2.1.0-beta3
+    #  os: mac
 
 before_install:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install -y libxml2-utils; fi

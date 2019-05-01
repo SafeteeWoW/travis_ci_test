@@ -7,19 +7,18 @@ if [[ ! "$LUA" =~  luajit.* ]]; then
 	exit 1
 fi
 
-LUAJIT_VERSION="${LUA/luajit/}"
-LUAJIT_BASE="LuaJIT"
+VERSION="${LUA/luajit/}"
 echo ">> Downloading $LUA"
-echo "luajit version: $LUAJIT_VERSION"
+echo "luajit version: $VERSION"
 
-curl --retry 10 --retry-delay 10 --location https://github.com/LuaJIT/LuaJIT/archive/v$LUAJIT_VERSION.tar.gz | tar xz;
+curl --retry 10 --retry-delay 10 --location https://github.com/LuaJIT/LuaJIT/archive/v$VERSION.tar.gz | tar xz;
 
-cd LuaJIT-$LUAJIT_VERSION
-echo ">> Compiling LuaJIT $LUAJIT_VERSION"
+cd LuaJIT-$VERSION
+echo ">> Compiling LuaJIT $VERSION"
 
 make && make install PREFIX="$LUA_HOME_DIR"
 
-ln -s -f luajit-$LUAJIT_VERSION $LUA_HOME_DIR/bin/luajit
+ln -s -f luajit-$VERSION $LUA_HOME_DIR/bin/luajit
 
 ln -s -f $LUA_HOME_DIR/bin/luajit $HOME/.lua/luajit
 ln -s -f $LUA_HOME_DIR/bin/luajit $HOME/.lua/lua
