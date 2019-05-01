@@ -1,20 +1,23 @@
-#! /bin/bash
+#!/bin/bash
 # helper script o compile and install luajit, luarocks and some libraries
 
 set -eufo pipefail
-if [[ ! "$LUA" =~  luajit.* ]]; then
-	echo "env variable does not match luajit. abort"
+
+NAME=luajit
+
+if [[ ! "$LUA" =~  ${NAME}.* ]]; then
+	echo "env variable does not match ${NAME}. abort"
 	exit 1
 fi
 
-VERSION="${LUA/luajit/}"
+VERSION="${LUA/${NAME}/}"
 echo ">> Downloading $LUA"
-echo "luajit version: $VERSION"
+echo "Version: $VERSION"
 
 curl --retry 10 --retry-delay 10 --location https://github.com/LuaJIT/LuaJIT/archive/v$VERSION.tar.gz | tar xz;
 
 cd LuaJIT-$VERSION
-echo ">> Compiling LuaJIT $VERSION"
+echo ">> Compiling $LUA"
 
 make && make install PREFIX="$LUA_HOME_DIR"
 

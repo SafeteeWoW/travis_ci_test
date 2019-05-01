@@ -1,12 +1,16 @@
-#! /bin/bash
+#!/bin/bash
 # helper script o compile and install classic Lua interpreter and LuaRocks.
 
 set -eufo pipefail
+
+NAME=lua
+
 echo "Downloading $LUA"
 if [[ "$LUA" =~ lua5.* ]]; then
-	LUA_VERSION="${LUA/lua/}"
-	curl --retry 10 --retry-delay 10 http://www.lua.org/ftp/lua-${LUA_VERSION}.tar.gz | tar xz
-	cd lua-${LUA_VERSION}
+	VERSION="${LUA/${NAME}/}"
+	echo "VERSION: $VERSION"
+	curl --retry 10 --retry-delay 10 http://www.lua.org/ftp/lua-${VERSION}.tar.gz | tar xz
+	cd lua-${VERSION}
 else
 	echo "$LUA is unknown"
 	exit 1
@@ -37,5 +41,3 @@ echo ">> Compiling luarocks $LUAROCKS"
 make build && make install
 
 ln -s -f $LR_HOME_DIR/bin/luarocks $HOME/.lua/luarocks
-
-cd $TRAVIS_BUILD_DIR

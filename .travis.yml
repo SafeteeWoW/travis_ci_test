@@ -7,8 +7,14 @@ env:
 
 matrix:
     include:
-    - env: LUA=ljx1.3
+    - env: LUA=luaj3.0.1
+      jdk: oraclejdk8
       os: linux
+    - env: LUA=luaj2.0.3
+      jdk: oraclejdk8
+      os: linux
+    #- env: LUA=ljx1.3
+    #  os: linux
     #- env: LUA=lua5.1.4
     #  os: linux
     #- env: LUA=lua5.2.4

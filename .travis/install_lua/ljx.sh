@@ -1,20 +1,22 @@
-#! /bin/bash
-# helper script o compile and install luajit, luarocks and some libraries
+#!/bin/bash
+# helper script o compile and install ljx
+
+NAME=ljx
 
 set -eufo pipefail
-if [[ ! "$LUA" =~  ljx.* ]]; then
-	echo "env variable does not match luajit. abort"
+if [[ ! "$LUA" =~  ${NAME}.* ]]; then
+	echo "env variable does not match ${NAME}. abort"
 	exit 1
 fi
 
-VERSION="${LUA/ljx/}"
+VERSION="${LUA/${NAME}/}"
 echo ">> Downloading $LUA"
 echo "lJX version: $VERSION"
 
 curl --retry 10 --retry-delay 10 --location https://github.com/katlogic/ljx/archive/LJX-v${VERSION}.tar.gz | tar xz;
 
 cd ljx-LJX-v$VERSION
-echo ">> Compiling LuaJIT $VERSION"
+echo ">> Compiling $LUA"
 
 make && make install PREFIX="$LUA_HOME_DIR"
 
