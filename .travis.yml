@@ -18,7 +18,7 @@ before_install:
   - bash .travis/install_lua.sh
   - bash .travis/install_compressor_decompressor.sh
   - bash .travis/install_luarocks_packages.sh
-  - source .travis\setenv_post_install.sh
+  - source .travis/setenv_post_install.sh
 
 script:
   - echo "$TRAVIS_OS_NAME"
