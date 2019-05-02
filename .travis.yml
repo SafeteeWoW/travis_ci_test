@@ -21,7 +21,7 @@ before_install:
 
 script:
   - hash -r
-  - if [[ "$LUA" == "luajit2.0.4" && "$TRAVIS_OS_NAME" == "linux" ]]; then lua -lluacov tests/Test.lua CommandLineCodeCoverage ; else echo "Not running coverage" fi
+  - if [[ "$LUA" == "luajit2.0.4" && "$TRAVIS_OS_NAME" == "linux" ]]; then lua -lluacov tests/Test.lua; else echo "Not running coverage"; fi
 
 after_success:
   - if [[ "$LUA" == "luajit2.0.4" && "$TRAVIS_OS_NAME" == "linux" ]]; then luacov; fi
