@@ -1,24 +1,15 @@
+#!/usr/bin/env false
 # Setup env vars which are determined at runtime.
 # Must source this script
 
 # Shouldn't use "set -eufo pipefail"
 # in the script which is sourced
 
-if [ -z "${PLATFORM:-}" ]; then
-  export PLATFORM=$TRAVIS_OS_NAME;
-fi
+export WORKDIR="$(pwd)"
 
-if [ "$PLATFORM" == "osx" ]; then
-  export PLATFORM="macosx";
-fi
+echo "Working directory: ${WORKDIR}"
 
-if [ -z "$PLATFORM" ]; then
-  if [ "$(uname)" == "Linux" ]; then
-    export PLATFORM="linux";
-  else
-    export PLATFORM="macosx";
-  fi;
-fi
+echo "PLATFORM: ${PLATFORM}"  # "Linux" for linux, "Darwin" for macosx
 
 mkdir -p $HOME/install
 mkdir -p $HOME/.lua
