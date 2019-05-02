@@ -7,13 +7,13 @@ env:
 
 matrix:
     include:
-    - env: LUA=luaj3.0.1
+    - env: LUA=luaj3.0.1 NO_EXTENDED_TESTS=1 LESS_BIG_TESTS=1
       jdk: oraclejdk8
       os: linux
-    - env: LUA=luaj2.0.3
+    - env: LUA=luaj2.0.3 NO_EXTENDED_TESTS=1 LESS_BIG_TESTS=1
       jdk: oraclejdk8
       os: linux
-    - env: LUA=ljx1.3
+    - env: LUA=ljx1.3 NO_EXTENDED_TESTS=1
       os: linux
     - env: LUA=lua5.1.4
       os: linux
@@ -36,13 +36,13 @@ matrix:
     - env: LUA=luajit2.1.0-beta3
       os: mac
     allow_failures:
-    - env: LUA=luaj3.0.1
+    - env: LUA=luaj3.0.1 NO_EXTENDED_TESTS=1 LESS_BIG_TESTS=1
       jdk: oraclejdk8
       os: linux
-    - env: LUA=luaj2.0.3
+    - env: LUA=luaj2.0.3 NO_EXTENDED_TESTS=1 LESS_BIG_TESTS=1
       jdk: oraclejdk8
       os: linux
-    - env: LUA=ljx1.3
+    - env: LUA=ljx1.3 NO_EXTENDED_TESTS=1
       os: linux
     - env: LUA=luajit2.1.0-beta3
       os: linux
@@ -59,4 +59,4 @@ before_install:
 script:
   - hash -r
   - lua -v
-  - lua tests/Test.lua
+  - lua tests/Test.lua ${NO_EXTENDED_TESTS:+--no-extended-tests} ${LESS_BIG_TESTS:+--less-big-tests}
